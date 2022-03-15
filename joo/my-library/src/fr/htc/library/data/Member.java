@@ -1,7 +1,7 @@
 package fr.htc.library.data;
-
+import java.util.Map;
 public class Member {
-	private static int cpt = 100;
+	private static /* static : => variable globale */ int cpt = 100;
 	private String matricule;
 	private String firstName;
 	private String lastName;
@@ -16,13 +16,9 @@ public class Member {
 	}
 
 	private String generateMatricule() {
-		// NP101
 
-		String n = (this.lastName == null || this.lastName.isEmpty()) ? "X" : this.lastName.substring(0, 1);
-		String p = (this.firstName == null || this.firstName.isEmpty()) ? "X" : this.firstName.substring(0, 1);
-		String mat = (n + p + cpt++);
-
-		return mat.toUpperCase();
+		return ((this.lastName == null || this.lastName.isEmpty() ? "X" :this.lastName.substring(0,1))
+				+ (this.firstName == null || this.firstName.isEmpty() ? "Y" :this.firstName.substring(0,1)) +cpt++).toUpperCase();
 	}
 
 	public String getFirstName() {
@@ -58,5 +54,7 @@ public class Member {
 		return "Member [matricule=" + matricule + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
 				+ "]";
 	}
+	String[] arrBook = new String[3];
+	
 
 }

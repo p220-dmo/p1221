@@ -15,13 +15,8 @@ public class Book {
 	}
 
 	private String generateCote() {
-		// AU17-10
-		String authPart = this.author.substring(0, 2);
-		int yearPart = this.year % 100;
 
-		String cote = (authPart + yearPart + "-" + cpt++).toUpperCase();
-
-		return cote;
+		return ((this.author == null || this.author.isEmpty() ? "XX" : this.author.substring(0, 2)) + this.year % 100 + "-" + cpt++).toUpperCase();
 	}
 
 	public String getTitle() {

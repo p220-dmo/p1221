@@ -1,20 +1,46 @@
 package fr.htc.library.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Member {
 	private static int cpt = 100;
+	private static final int MAX_BOOK = 3;
 	private String matricule;
 	private String firstName;
 	private String lastName;
 	private int age;
+	
+	private List<Book> checkedOutBooks = new ArrayList<Book>();
 
+	
+	
 	public Member(String firstName, String lastName, int age) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
-		this.matricule = generateMatricule();
+		this.matricule = this.generateMatricule();
 
 	}
 
+	
+	public boolean addBook(Book book) {
+		return checkedOutBooks.add(book);
+	}
+	
+	public boolean deleteBook(Book book) {
+		return checkedOutBooks.remove(book);
+	}
+	
+	public boolean canCheckout() {
+		if(this.checkedOutBooks.size() < MAX_BOOK) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
 	private String generateMatricule() {
 		// NP101
 

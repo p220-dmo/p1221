@@ -7,11 +7,29 @@ public class Book {
 	private String author;
 	private int year;
 
+	private Member loaner = null;
+
 	public Book(String title, String author, int year) {
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.cote = generateCote();
+	}
+
+	
+	public boolean isAvailable() {
+		if(loaner == null) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Member getLoaner() {
+		return loaner;
+	}
+
+	public void setLoaner(Member loaner) {
+		this.loaner = loaner;
 	}
 
 	private String generateCote() {
@@ -57,5 +75,4 @@ public class Book {
 		return "Book [cote=" + cote + ", title=" + title + ", author=" + author + ", year=" + year + "]";
 	}
 
-	
 }

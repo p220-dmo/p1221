@@ -1,5 +1,8 @@
 package fr.htc.library.data;
 
+import fr.htc.library.dao.BookDao;
+import fr.htc.library.dao.MemberDao;
+
 public class Book {
 	private static int cpt = 10;
 	private String cote;
@@ -16,14 +19,13 @@ public class Book {
 		this.cote = generateCote();
 	}
 
-	
 	public boolean isAvailable() {
-		if(loaner == null) {
+		if (loaner == null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public Member getLoaner() {
 		return loaner;
 	}
@@ -35,7 +37,7 @@ public class Book {
 	private String generateCote() {
 		// AU17-10
 		String authPart = this.author.substring(0, 2);
-		int yearPart = this.year % 100;
+		String yearPart = ("" + this.year).substring(2, 4);
 
 		String cote = (authPart + yearPart + "-" + cpt++).toUpperCase();
 
@@ -73,6 +75,18 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [cote=" + cote + ", title=" + title + ", author=" + author + ", year=" + year + "]";
+	}
+
+	MemberDao memberFound = new MemberDao();
+
+	public boolean isLoaner(String matricule) {
+
+		if (memberFound.selectMemberByMatricule(matricule) == loaner) {
+			loaner = null;
+		}
+
+		return false;
+
 	}
 
 }

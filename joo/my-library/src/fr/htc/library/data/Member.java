@@ -1,7 +1,8 @@
 package fr.htc.library.data;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import fr.htc.library.dao.BookDao;
 
 public class Member {
 	private static int cpt = 100;
@@ -83,6 +84,21 @@ public class Member {
 	public String toString() {
 		return "Member [matricule=" + matricule + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
 				+ "]";
+	}
+
+	
+	//   Book bookFound = new Book(firstName, firstName, age);
+	
+	BookDao bookFound = new BookDao();
+	public boolean hasBook(String cote) {
+		for (int i = 0; i < checkedOutBooks.size();i++) {
+			if (bookFound.selectBookByCote(cote) == checkedOutBooks.get(i)) {
+				checkedOutBooks.remove(bookFound);
+			}
+			System.out.println( checkedOutBooks.get(i) );
+		}
+		
+		return false;
 	}
 
 }

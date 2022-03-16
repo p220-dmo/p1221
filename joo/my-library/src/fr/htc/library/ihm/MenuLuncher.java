@@ -68,6 +68,7 @@ public class MenuLuncher {
 			break;
 		case CHECK_IN:
 			System.out.println("CHECK_IN");
+			checkoutService.checkin();
 			break;
 		case FIND_MEMBER:
 			System.out.println("FIND_MEMBER");

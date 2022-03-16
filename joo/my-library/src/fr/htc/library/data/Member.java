@@ -10,11 +10,9 @@ public class Member {
 	private String firstName;
 	private String lastName;
 	private int age;
-	
+
 	private List<Book> checkedOutBooks = new ArrayList<Book>();
 
-	
-	
 	public Member(String firstName, String lastName, int age) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -23,24 +21,33 @@ public class Member {
 
 	}
 
-	
 	public boolean addBook(Book book) {
+
 		return checkedOutBooks.add(book);
+
 	}
-	
+
 	public boolean deleteBook(Book book) {
 		return checkedOutBooks.remove(book);
 	}
-	
+
 	public boolean canCheckout() {
-		if(this.checkedOutBooks.size() < MAX_BOOK) {
+		if (this.checkedOutBooks.size() < MAX_BOOK) {
+			System.out.println("you have made : " + checkedOutBooks.size() + 1 + "borrows");
 			return true;
 		}
 		return false;
 	}
-	
-	
-	
+
+	public boolean hasBook(String cote) {
+		for (int i = 0; i < checkedOutBooks.size(); i++) {
+			if (checkedOutBooks.get(i).getCote().equals(cote)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private String generateMatricule() {
 		// NP101
 

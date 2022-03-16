@@ -16,20 +16,27 @@ public class Book {
 		this.cote = generateCote();
 	}
 
-	
 	public boolean isAvailable() {
-		if(loaner == null) {
+		if (loaner == null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public Member getLoaner() {
 		return loaner;
 	}
 
 	public void setLoaner(Member loaner) {
 		this.loaner = loaner;
+
+	}
+	public boolean isLoaner(String matricule) {
+		if (this.loaner!=null && getLoaner().getMatricule().equals(matricule)) {
+			return true;
+		}
+		return false;
+
 	}
 
 	private String generateCote() {

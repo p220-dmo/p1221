@@ -6,23 +6,23 @@ import fr.htc.library.data.Book;
 import fr.htc.library.data.Member;
 import fr.htc.library.utils.ScannerUtils;
 
-public class CheckoutService {
+public class CheckinService {
 
 	MemberDao memberDao = new MemberDao();
 	BookDao bookDao = new BookDao();
 
-	public void checkout() {
+	public void checkin() {
 
 		System.out.print("Matricule : ");
 		String matricule = ScannerUtils.getInstance().next();
 		System.out.print("Cote : ");
 		String cote = ScannerUtils.getInstance().next();
 
-		this.checkout(matricule, cote);
+		this.checkin(matricule, cote);
 
 	}
 
-	public boolean checkout(String matricule, String cote) {
+	public boolean checkin(String matricule, String cote) {
 
 		// matricule not null : msg
 		if (matricule == null || matricule.isBlank()) {
@@ -50,22 +50,21 @@ public class CheckoutService {
 			return false;
 		}
 
-		// Member can checkout yet : msg
+		// Member can checkin : msg
 
-		if (member.canCheckout() == false) {
-			System.out.println("max book reach for this member ");
+		if (member.hasBook(cote) == false) {
+			System.out.println("book doesn't belong to member ");
 			return false;
 		}
 		// Book available : msg
-		if (book.isAvailable() == false) {
+		if (book.isLoaner(matricule) == false) {
 			System.out.println("book not available");
 			return false;
 		}
 		// make relation : Checkout
-		member.addBook(book);
-		book.setLoaner(member);
-		System.out.println();
-		System.out.println("chekout successfully");
+		member.deleteBook(book);
+		book.setLoaner(null);
+		System.out.println("chekin successfully");
 		return true;
 
 	}

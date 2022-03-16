@@ -4,6 +4,7 @@ import fr.htc.library.data.Book;
 import fr.htc.library.data.Member;
 import fr.htc.library.main.DataBaseInit;
 import fr.htc.library.service.BookService;
+import fr.htc.library.service.CheckinService;
 import fr.htc.library.service.CheckoutService;
 import fr.htc.library.service.MemberService;
 import fr.htc.library.utils.ScannerUtils;
@@ -20,10 +21,10 @@ public class MenuLuncher {
 	private static MemberService memberService = new MemberService();
 	private static BookService bookService = new BookService();
 	private static CheckoutService checkoutService = new CheckoutService();
-	
+	private static CheckinService checkinService = new CheckinService();
 
 	public static void main(String[] args) {
-		//Initialiser la base de données : Map
+		// Initialiser la base de données : Map
 		DataBaseInit.init();
 		int choice = -1;
 		do {
@@ -66,6 +67,7 @@ public class MenuLuncher {
 			break;
 		case CHECK_IN:
 			System.out.println("CHECK_IN");
+			checkinService.checkin();
 			break;
 		case FIND_MEMBER:
 			System.out.println("FIND_MEMBER");
@@ -76,14 +78,14 @@ public class MenuLuncher {
 		case FIND_BOOK:
 			System.out.println("FIND_BOOK");
 			System.out.print("Enter Cote : ");
-			 Book findBook = bookService.getBookByCote(ScannerUtils.getInstance().next());
+			Book findBook = bookService.getBookByCote(ScannerUtils.getInstance().next());
 			System.out.println(findBook);
 			break;
 		case EXIT:
 			System.out.println("EXIT");
 			break;
 		default:
-			
+
 			System.out.println("BAD INPUT");
 			break;
 		}

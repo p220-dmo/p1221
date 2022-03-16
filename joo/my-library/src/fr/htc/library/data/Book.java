@@ -70,9 +70,21 @@ public class Book {
 		return cote;
 	}
 
+
+
+
 	@Override
 	public String toString() {
-		return "Book [cote=" + cote + ", title=" + title + ", author=" + author + ", year=" + year + "]";
+		return "Book [cote=" + cote + ", title=" + title + ", author=" + author + ", year=" + year + ", loaner="
+				+ (loaner != null ? loaner.getMatricule(): "_")  + "]";
+	}
+
+
+	public boolean isLoaner(String matricule) {
+		if(this.loaner != null && this.loaner.getMatricule().equals(matricule)) {
+			return true;
+		}
+		return false;
 	}
 
 }

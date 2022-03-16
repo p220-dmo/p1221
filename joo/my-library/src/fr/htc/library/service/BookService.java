@@ -1,5 +1,8 @@
 package fr.htc.library.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.htc.library.dao.BookDao;
 import fr.htc.library.data.Book;
 import fr.htc.library.utils.ScannerUtils;
@@ -33,6 +36,26 @@ public class BookService {
 			return null;
 		}
 		return bookDao.selectBookByCote(cote);
+	}
+
+	public List<Book> findAvailableBooks() {
+		List<Book> books = bookDao.getAllBooks();
+		
+		
+		List<Book> availableBooks = new ArrayList<Book>();
+
+		for (Book book : books) {
+			if (book.isAvailable()) {
+				availableBooks.add(book);
+			}
+		}
+		return availableBooks;
+	}
+
+	public List<Book> findUnavailableBooks() {
+		List<Book> unavailableBook = bookDao.getAllBooks();
+		unavailableBook.removeAll(this.findAvailableBooks());
+		return unavailableBook;
 	}
 
 }

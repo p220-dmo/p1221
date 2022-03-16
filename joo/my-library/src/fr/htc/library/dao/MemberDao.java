@@ -2,7 +2,6 @@ package fr.htc.library.dao;
 
 import java.util.Map;
 
-import fr.htc.library.dao.db.DataBase;
 import fr.htc.library.data.Member;
 
 public class MemberDao {

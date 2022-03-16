@@ -81,8 +81,24 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [matricule=" + matricule + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
-				+ "]";
+		StringBuilder sb = new StringBuilder("Member [matricule=" + matricule + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
+				+ "]\n|");
+		
+		for (Book book : checkedOutBooks) {
+			sb.append(book.getCote() + " | ");
+		}
+		
+		return sb.toString();
+	}
+
+
+	public boolean hasBook(String cote) {
+		for (Book book : checkedOutBooks) {
+			if(book.getCote().equals(cote)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

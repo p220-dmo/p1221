@@ -1,4 +1,4 @@
-package fr.htc.library.dao.db;
+package fr.htc.library.dao;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,11 +11,11 @@ public class DataBase {
 	private static Map<String, Member> memberTable = new HashMap<String, Member>();
 	private static Map<String, Book> bookTable = new HashMap<String, Book>();
 
-	public static Map<String, Member> getMemberTable() {
+	static Map<String, Member> getMemberTable() {
 		return memberTable;
 	}
 
-	public static Map<String, Book> getBookTable() {
+	static Map<String, Book> getBookTable() {
 		return bookTable;
 	}
 

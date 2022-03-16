@@ -1,6 +1,7 @@
 package fr.htc.library.data;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class Member {
@@ -36,6 +37,20 @@ public class Member {
 		if(this.checkedOutBooks.size() < MAX_BOOK) {
 			return true;
 		}
+		return false;
+	}
+	public boolean hasBook (String cote) {
+		for (int i =0; i < checkedOutBooks.size(); i++) {
+			
+			if (checkedOutBooks.get(i).getCote().equals(cote)) {
+				return true;
+				
+			} 
+			
+			
+		}
+		
+		
 		return false;
 	}
 	
@@ -78,6 +93,7 @@ public class Member {
 	public String getMatricule() {
 		return matricule;
 	}
+	 
 
 	@Override
 	public String toString() {

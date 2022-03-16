@@ -8,6 +8,7 @@ public class Book {
 	private int year;
 
 	private Member loaner = null;
+	
 
 	public Book(String title, String author, int year) {
 		this.title = title;
@@ -30,6 +31,19 @@ public class Book {
 
 	public void setLoaner(Member loaner) {
 		this.loaner = loaner;
+	}
+	public boolean isLoaner(String matricule) {
+		
+		if (loaner.getMatricule().equals(matricule)) {
+			return true;
+		}
+		return false;
+		
+	}
+	public void deleteLoaner(Member loaner) {
+		this.loaner=null;
+		
+		 
 	}
 
 	private String generateCote() {

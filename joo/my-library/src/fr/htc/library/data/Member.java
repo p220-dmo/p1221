@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Member {
 	private static int cpt = 100;
-	private static final int MAX_BOOK = 3;
+	private static final int MAX_BOOK = 1;
 	private String matricule;
 	private String firstName;
 	private String lastName;

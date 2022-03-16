@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="fr.htc.library.dao.MemberDao"/>
+    <fullyQualifiedTypeName name="fr.htc.library.data.Member"/>
+    <fullyQualifiedTypeName name="fr.htc.library.data.Book"/>
+    <fullyQualifiedTypeName name="fr.htc.library.dao.db.DataBase"/>
+</qualifiedTypeNameHistroy>

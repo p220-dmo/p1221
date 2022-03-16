@@ -68,4 +68,55 @@ public class CheckoutService {
 		return true;
 	}
 
+	
+	// methode chekhin 
+	public void checkin() {
+		System.out.print("Matricule : ");
+		String matricule = ScannerUtils.getInstance().next();
+		System.out.print("Cote : ");
+		String cote = ScannerUtils.getInstance().next();
+
+		this.checkin(matricule, cote);
+
+	}
+
+	public boolean checkin(String matricule, String cote) {
+
+		if (matricule == null || matricule.isBlank()) {
+
+			System.out.println("matricule must is ne null");
+
+			return false;
+		}
+		// matricule match Member msg
+		Member member = memberDao.selectMemberByMatricule(matricule);
+		if (member == null) {
+			System.out.println("member doset exist");
+			return false;
+		}
+
+		// cote not null : msg
+		if (cote == null || cote.isBlank()) {
+
+			System.out.println("matricule must is ne null");
+
+			return false;
+		}
+		// cote match Book : msg
+		Book book = bookDao.selectBookByCote(cote);
+		if (book == null) {
+			System.out.println("book doesn't exist");
+			return false;
+		}
+		member.hasBook(cote);
+		if (member.hasBook(cote) == true) {
+			System.out.println("le livre a ete bien emprunté ");
+			return false;
+		}
+		
+	
+		return true;
+
+	}
+
 }

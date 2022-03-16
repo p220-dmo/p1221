@@ -1,15 +1,23 @@
 package fr.htc.library.data;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import fr.htc.library.dao.BookDao;
+import fr.htc.library.dao.MemberDao;
+import fr.htc.library.dao.db.DataBase;
+
 public class Member {
+	
 	private static int cpt = 100;
-	private static final int MAX_BOOK = 1;
+	private static final int MAX_BOOK = 3;
 	private String matricule;
 	private String firstName;
 	private String lastName;
 	private int age;
+	MemberDao memberDao = new MemberDao();
+	BookDao bookDao = new BookDao();
 	
 	private List<Book> checkedOutBooks = new ArrayList<Book>();
 
@@ -83,6 +91,21 @@ public class Member {
 	public String toString() {
 		return "Member [matricule=" + matricule + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
 				+ "]";
+	}
+
+
+	public boolean hasBook(String cote) {
+		for (Book book : checkedOutBooks) {
+			
+		}
+	
+		
+		
+		
+		
+	/*Book book = DataBase.getBookTable().get(cote);
+	checkedOutBooks.contains(book);
+		return true;*/
 	}
 
 }

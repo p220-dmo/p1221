@@ -16,6 +16,7 @@ public class MenuLuncher {
 	private static final int FIND_MEMBER = 5;
 	private static final int FIND_BOOK = 6;
 	private static final int EXIT = 0;
+	private static final CheckoutService checkinservice = null;
 
 	private static MemberService memberService = new MemberService();
 	private static BookService bookService = new BookService();
@@ -66,6 +67,7 @@ public class MenuLuncher {
 			break;
 		case CHECK_IN:
 			System.out.println("CHECK_IN");
+			checkoutService.checkin();
 			break;
 		case FIND_MEMBER:
 			System.out.println("FIND_MEMBER");

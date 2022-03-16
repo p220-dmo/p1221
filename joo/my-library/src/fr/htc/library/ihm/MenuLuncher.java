@@ -23,7 +23,9 @@ public class MenuLuncher {
 	
 
 	public static void main(String[] args) {
+		
 		//Initialiser la base de données : Map
+		
 		DataBaseInit.init();
 		int choice = -1;
 		do {

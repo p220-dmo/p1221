@@ -8,12 +8,10 @@ public class ScannerUtils {
 
 	private ScannerUtils() {
 	}
-
 	public static Scanner getInstance() {
 		if (uniqueInstance == null) {
 			uniqueInstance = new Scanner(System.in);
 		}
 		return uniqueInstance;
 	}
-
 }

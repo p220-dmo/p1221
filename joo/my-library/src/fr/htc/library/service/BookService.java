@@ -32,7 +32,7 @@ public class BookService {
 	}
 
 	public Book getBookByCote(String cote) {
-		if (cote == null || cote.isBlank()) {
+		if (cote == null || cote.trim().isEmpty()) {
 			return null;
 		}
 		return bookDao.selectBookByCote(cote);

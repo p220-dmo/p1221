@@ -22,14 +22,14 @@ public class CheckoutService {
 
 	public boolean checkout(String matricule, String cote) {
 		// matricule not null : msg
-		if (matricule == null || matricule.isBlank()) {
+		if (matricule == null || matricule.trim().isEmpty()) {
 			System.out.println("Matricule musn't be null");
 			return false;
 		}
 
 		// cote not null : msg
 
-		if (cote == null || cote.isBlank()) {
+		if (cote == null || cote.trim().isEmpty()) {
 			System.out.println("cote musn't be null");
 			return false;
 		}
@@ -73,14 +73,14 @@ public class CheckoutService {
 
 	public boolean checkin(String matricule, String cote) {
 		// matricule not null : msg
-		if (matricule == null || matricule.isBlank()) {
+		if (matricule == null || matricule.trim().isEmpty()) {
 			System.out.println("Matricule musn't be null");
 			return false;
 		}
 
 		// cote not null : msg
 
-		if (cote == null || cote.isBlank()) {
+		if (cote == null || cote.trim().isEmpty()) {
 			System.out.println("cote musn't be null");
 			return false;
 		}
@@ -123,7 +123,7 @@ public class CheckoutService {
 		System.out.print("Cote : ");
 		String cote = ScannerUtils.getInstance().next();
 
-		this.checkin(matricule, cote);
+		this.checkout(matricule, cote);
 	}
 
 }

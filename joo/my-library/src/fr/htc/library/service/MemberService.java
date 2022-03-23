@@ -28,7 +28,7 @@ public class MemberService {
 	}
 
 	public Member getMemberByMatricule(String matricule) {
-		if (matricule == null || matricule.isBlank()) {
+		if (matricule == null || matricule.trim().isEmpty()) {
 			return null;
 		}
 		return memberDao.selectMemberByMatricule(matricule);

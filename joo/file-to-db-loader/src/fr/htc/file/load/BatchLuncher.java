@@ -20,7 +20,7 @@ public class BatchLuncher {
 		Processor processor = FileProcessorFactory.newInstance(file.getExtension());
 		List<Sale> sales = processor.process(file);
 		
-		
+			
 		// 3- Load Data on Data base
 		SaleDao saleDao = new SaleDao();
 		for (Sale sale : sales) {
